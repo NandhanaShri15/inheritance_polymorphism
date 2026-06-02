@@ -1,0 +1,46 @@
+class Product:
+    def getdetails(self):
+        self.id=int(input("Enter product id:"))
+        self.n=input("Enter product name:")
+        self.p=float(input("Enter product price:"))
+    def display(self):
+        print("\n ---PRODUCT DETAILS---")
+        print("ID:",self.id)
+        print("Name:",self.n)
+        print("Price:",self.p)
+    def add_to_cart(self):
+        print(self.n,"Added to cart")
+class Electronics(Product):
+    def getelectronicsdetails(self):
+        print("\n Enter electronics details")
+        super().getdetails()
+        self.brand=input("Enter brand:")
+        self.w=input("Enter warranty:")
+    def add_to_cart(self):
+        print("Electronics item added to cart")
+    def display(self):
+        print("\n ---ELECTRONICSS DETAILS---")
+        super().display()
+        print("Brand:",self.brand)
+        print("Warranty:",self.w)
+class Clothing(Product):
+    def getclothdetails(self):
+        print("\n Enter clothing details")
+        super().getdetails()
+        self.size=input("Enter size:")
+        self.color=input("Enter color:")
+    def add_to_cart(self):
+        print("Clothing item added to cart")
+    def display(self):
+        print("\n ---CLOTHING DEATILS---")
+        super().display()
+        print("Size:",self.size)
+        print("Colour:",self.color)
+p1=Electronics()
+p2=Clothing()
+p1.getelectronicsdetails()
+p2.getclothdetails()
+p1.add_to_cart
+p2.add_to_cart
+p1.display()
+p2.display()
