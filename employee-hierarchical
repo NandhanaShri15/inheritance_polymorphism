@@ -1,0 +1,46 @@
+class Employee:
+    def getdetails(self):
+        self.id=int(input("Enter ID:"))
+        self.n=input("Enter name:")
+        self.s=float(input("Enter salary:"))
+        self.p=float(input("Enter bonus %:"))
+    def calculate_bonus(self):
+        self.bonus=(self.s*self.p)/100
+    def display(self):
+        print("\n ---EMPLOYEE DETAILS---")
+        print("Id:",self.id)
+        print("Name:",self.n)
+        print("Salary:",self.s)
+        print("Bonus:",self.bonus)
+class Manager(Employee):
+    def manager_details(self):
+        print("\n Enter Manager Details")
+        super().getdetails()
+        self.dept=input("Enter department :")
+        self.ts=int(input("Enter team size:"))
+        self.a=float(input("Enter allowance:"))
+        self.calculate_bonus()
+    def printmanager(self):
+        print("\n ---MANAGER DETAILS---")
+        super().display()
+        print("Department:",self.dept)
+        print("Team size:",self.ts)
+        print("Allowance:",self.a)
+class Developer(Employee):
+    def developer_details(self):
+        print("\n Enter Developer deatils")
+        super().getdetails()
+        self.project=input("Enter project:")
+        self.exp=int(input("Enter experience(years):"))
+        self.calculate_bonus()
+    def printdeveloper(self):
+        print("\n ---DEVELOPER DETAILS---")
+        super().display()
+        print("Project:",self.project)
+        print("Experience:",self.exp)
+m=Manager()
+d=Developer()
+m.manager_details()
+d.developer_details()
+m.printmanager()
+d.printdeveloper()
