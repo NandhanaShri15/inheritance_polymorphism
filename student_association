@@ -1,0 +1,66 @@
+
+class Student:
+    def getdetails(self):
+        self.rn=int(input("Enter roll no. :"))
+        self.n=input("Enter name:")
+        self.tm=int(input("Enter test mark:"))
+    def total_marks(self):
+        self.total=self.tm
+    def display(self):
+        print("Roll no. :",self.rn)
+        print("Name:",self.n)
+        print("Test mark:",self.tm)
+class Literary_student(Student):
+    def getlitmark(self):
+        super().getdetails()
+        self.lm=int(input("Enter mark of literary association particiption:"))
+    def total_marks(self):
+        super().total_marks()
+        self.total+=self.lm
+    def display(self):
+        super().display()
+        print("Literary association mark:",self.lm)
+        print("Total marks:",self.total)
+class sports_student(Student):
+    def getspmark(self):
+        super().getdetails()
+        self.sm=int(input("Enter sports mark:"))
+    def total_marks(self):
+        super().total_marks()
+        self.total+=self.sm
+    def display(self):
+        super().display()
+        print("Sports mark:",self.sm)
+        print("Total marks:",self.total)
+class Lit_Sport_Student(Student):
+    def getlit_spmark(self):
+        super().getdetails()
+        self.lm=int(input("Enter mark of literary association participation:"))
+        self.sm=int(input("Enter sports mark:"))
+    def total_marks(self):
+        super().total_marks()
+        self.total=self.total+self.lm+self.sm
+    def display(self):
+        super().display()
+        print("Literary association marl:",self.lm)
+        print("Sports mark:",self.sm)
+        print("Total mark:",self.total)
+print("1. Literary association club\n2. Sports club\n3. Both club")
+ch=int(input("Enter your choice:"))
+if ch==1:
+    c1=Literary_student()
+    c1.getlitmark()
+    c1.total_marks()
+    c1.display()
+elif ch==2:
+    c2=sports_student()
+    c2.getspmark()
+    c2.total_marks()
+    c2.display()
+elif ch==3:
+    c3=Lit_Sport_Student()
+    c3.getlit_spmark()
+    c3.total_marks()
+    c3.display()
+else:
+    print("Invalid choice")
